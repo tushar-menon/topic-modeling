@@ -30,7 +30,7 @@ vectorizer = CountVectorizer(stop_words='english')
 vectors = vectorizer.fit_transform(train.data).todense()
 
 def grads(M, W, H):
-    R = W@H-M
+    R = W*H-M
     return R@H.T + penalty(W, mu)*lam, W.T@R + penalty(H, mu)*lam
 
 def penalty(M, mu):
